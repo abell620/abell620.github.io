@@ -1,0 +1,1015 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>dbs</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+table {
+  border-collapse: collapse;
+}
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+</style>
+</head>
+<body>
+<h1><center>第一章数据库应用系统开发方法</center></h1>
+<h2>1. 数据库系统</h2>
+<p>数据库系统DBS:主要提供应用数据的组织、存储、维护、访问等数据管理功能<br />
+数据库应用系统DBAS:不仅为用户提供数据管理功能，还根据具体应用领域业务规则，通过应用程序实现更为复杂的数据处理功能。<br />
+数据库 DBS 就是基本的操作，在之上根据具体需要调整结构，优化使用体验，就是应用系统 DBAS考虑的。</p>
+<h2>2. 软件开发模型：</h2>
+<p>瀑布模型（软件生命周期模型），快速原型模型、螺旋模型等<br />
+ 瀑布模型六阶段：项目规划，系统分析，总体设计，详细设计，编码调试与集成调试，运行维护（优点保证系统一致性完备性，确定是不能发掘出用户的潜在需求）<br />
+  快速原型模型：快速分析，设计构造原型，运行原型，评价原型并改进原型。<br />
+  螺旋模型：项目规划，风险评估，工程实现，用户评估。（进行下一次的循环）  </p>
+<h2>3. DBAS生命周期模型的五个步骤：</h2>
+<ul>
+<li>项目规划（系统规划与定义{确定视图}，可行性分析{经济、操作，技术、开发方案可行性}，项目规划）</li>
+<li>需求分析（DBAS需求分析规范说明书）</li>
+<li>系统设计（概念设计，逻辑设计和物理设计）</li>
+<li>实现与部署</li>
+<li>运行与维护</li>
+</ul>
+<h2>4. 需求分析</h2>
+<p>包括数据需求分析，功能需求分析、性能需求分析和其它需求分析<br />
+  数据需求:分析需要形成数据字典：数据项，数据结构，数据流，数据存储和处理过程。<br />
+  功能需求:分析包括数据处理需求分析（通过数据流图：{data flow diagram}形成数据字典文档）和业务规则需求分析（UML图）。<br />
+  性能需求分析：响应时间，系统吞吐量（TPS）,每TPS价值，允许并发访问的最大用户数。<br />
+  其它需求分析包括：存储需求分析（数据库大小以及数据库存储量增长速度），安全性需求分析(备份和恢复需求分析)  </p>
+<h2>5. 系统设计</h2>
+<p>  概念设计：数据库概念模型设计和系统总体设计。<br />
+  系统总体设计：DBAS体系结构设计，硬件平台选型和配置，应用软件结构设计，对业务规则进行初步设计，对关键技术进行选型和初步设计<br />
+  逻辑设计：数据库逻辑结构设计，应用程序概要设计，数据库事务概要设计。<br />
+  物理设计：数据库物理结构设计，数据库事务详细设计，应用程序详细设计。</p>
+<h2>6. 实现与部署</h2>
+<p>DBAS实现与部署：建立数据库结构，数据加载，事务和应用程序的编码与测试，系统集成、测试与试运行，系统部署</p>
+<h2>7. 运行管理与维护</h2>
+<p>数据库应用系统的运行管理和数据库本身的运行管理。由DBA负责。</p>
+<h1><center>第二章 需求分析</center></h1>
+<p>1. 需求的获取方法：面谈，实地观察，问卷调查，查阅资料  </p>
+<p>2. 需求分析过程：标识问题，建立需求模型，描述需求，确认需求</p>
+<p>3. DFD方法：数据流，处理，数据存储，外部项。（自顶向下逐步细化的结构化分析方法） </p>
+<p>4. IDEFO方法：箭头表示数据流，矩形表示活动。  </p>
+<p>5. UML方法：也可以进行信息系统的需求分析。  </p>
+<h1><center>第三章 数据库结构设计（自底向上）</center></h1>
+<h2>概念设计</h2>
+<h3>1. 数据库概念设计的</h3>
+<p>数据库概念设计的依据:是需求分析阶段的文档，其中包括需求说明书、功能模型以及在需求分析阶段收集到的应用领域或问题域中的各类报表等。  </p>
+<h3>2. 概念设计的过程：</h3>
+<p>明确建模目标，定义实体集，定义联系，建立信息模型，确定实体集属性，对信息模型进行集成与优化。       
+ER模型：很简单，但是肯定会考。  
+IDEF1X：独立实体集（每个实例都能够被唯一标识而不决定于它与其它实体集的联系），从属实体集（实例依赖于其它实体集的实例）  <br />
+联系：<br />
+标定型联系：由两个父实体集共同确定（外码有两个，并取决于不同的表） <br />
+非标定型联系：无需了解父端的实例  <br />
+分类联系：存在一般实体集，并且每个实例都对应有且仅有一个分类实体集<br />
+非确定联系：多对多  </p>
+<h3>逻辑设计</h3>
+<p>ER模型转换为关系（需要将联系合并到关系中）。</p>
+<h3>物理设计</h3>
+<ol>
+<li>
+<p>物理结构角度要考虑的问题：文件的组织，文件的结构，文件的存取和索引技术。 </p>
+</li>
+<li>
+<p>索引技术：有序索引技术（顺序排列），散列技术（利用一个散列函数实现记录域到记录的物理地址间的直接映射关系）  
+</p>
+</li>
+<li>
+<p>有序索引的分类：<br />
+ 聚集索引（索引文件中索引项排列顺序和数据排列顺序相一致），非聚集索引（反之）<br />
+ 稠密索引（每个查找码都对应一个索引记录），稀疏索引（部分查找码对应了索引记录）<br />
+ 主索引（主码属性集上建立的索引），辅索引（非主属性上建立的索引）<br />
+ 唯一索引（索引属性列都是唯一的），单层索引，多层索引（进一步优化索引效率）  
+</p>
+</li>
+<li>物理设计环节：数据库逻辑模式描述，文件组织和存取设计，数据分布设计，确定系统配置，物理模式评估。</li>
+</ol>
+<h1><center>第四章 数据库应用系统功能设计与实现</center></h1>
+<p>1. DBAS总体设计的主要内容：DBAS体系结构设计，DBAS软件总体设计，软硬件选型与配置设计，业务规则初步设计。<br />
+</br>
+2. DBAS体系结构设计：<br />
+客户/服务器（C/S）结构：客户端应用程序+数据库服务器  
+三层浏览器/服务器（B/S）结构：浏览器+Web应用服务器+数据库服务器  </p>
+<p>3. DBAS软件总体设计：得到系统总体结构和分层模块结构。  </p>
+<ol>
+<li>
+<p>软硬件选型与配置设计:涉及很多内容  
+</p>
+</li>
+<li>
+<p>业务规则初步设计：业务流程和运行规则的制订等。   
+</p>
+</li>
+<li>
+<p>DBAS功能概要设计：分为四层（表示层，业务逻辑层，数据访问层，数据持久层）
+目的：产生软件总体结构和软件功能模块  
+</p>
+</li>
+<li>
+<p>DBAS功能详细设计：表示层详细设计（初步设计，用户界面细节设计，原型设计与改进）和业务逻辑层详细设计</p>
+</li>
+<li>
+<p>DBAS安全架构设计：数据安全设计，安全性保护，完整性保护，并发控制，数据库的备份与恢复，数据加密传输  <br />
+安全性保护：用户身份识别，权限控制，视图机制。  <br />
+完整性保护：防止合法用户想数据库中加入不合语义的数据，主要措施是对数据设置一些完整性约束条件。<br />
+并发控制：封锁机制。基本的封锁一般有排他锁和共享锁（一定要避免死锁）。    
+数据库备份与恢复：双机热备，数据转储，数据加密存储。    
+数据加密传输：手段有数字安全证书，对称密钥加密，数字签名，数字信封。<br />
+环境安全设计:<br />
+漏洞与补丁：检查系统漏洞并更新系统补丁。
+计算机病毒防护<br />
+网络环境安全<br />
+物理环境安全<br />
+制度安全设计：  
+</p>
+</li>
+<li>
+<p>DBAS实施：创建数据库，装载数据，编写与调试应用程序，数据库试运行。  
+创建数据库：考虑初始空间大小，数据库增量大小，访问性能。  
+装载数据：筛选数据，转换数据格式，输入数据，校验数据。  
+数据库试运行：功能测试，性能测试（先测试恢复功能，做好转储和恢复工作）</p>
+</li>
+</ol>
+<h1><center>第五章 UML与数据库应用系统</center></center></h1>
+<p>UML语义是定义在四层建模概念框架中的，这四层分别是：元元模型，元模型，模型，用户模型。  <br />
+圆角矩形表示活动，箭头线表示活动之间的联系，标注为执行下一个活动的条件  <br />
+DBAS业务流程活动图：可以并行操作。分为起始点，结束点，分区，活动  <br />
+DBAS系统需求用例图：分为用例，角色和系统。用带空心的三角箭头表示通用化关系。（超类）  <br />
+DBAS系统结构类图、顺序图和通信图：  <br />
+结构类图包括属性，操作和关系（关系又包含关联关系，继承关系，依赖关系和精化关系）。关联联系中一种特殊的关联是聚集，分为共享聚集（空心菱形）和组成（实心菱形）<br />
+顺序图：时间轴和对象轴。描述对象之间如何协作达到系统的目标。  <br />
+通信图（协作图）：显示对象之间的关系，并不侧重交互顺序，用数字表示消息或者线程的顺序。  <br />
+DBAS系统微观设计对象图，状态机图和时间图  <br />
+对象图：特定时间点上所有对象的一个快照。强调瞬时性。  <br />
+状态机图：陈述系统或对象的状态转移。  <br />
+时间图：通过时间的推移让时间因子呈现一个可视化的效果。  <br />
+DBAS系统宏观设计包图、交互概述图和复合结构图  <br />
+包图：不同系统或者项目间的彼此的关系。（定义了可见性，包括私有，保护，公有和实现）  <br />
+交互概述图：活动图+交互框  <br />
+复合结构图：评估系统复杂度的工具。部件与部件之间是装配的关系，通过端口才能连接。端口上有需求接口和供给接口。  <br />
+DBAS系统实现组件图和部署图 <br />
+组件图：带箭头的虚线。展现了组件之间的组织和依赖，用于对源代码、可执行的发布、物理数据库等的系统建模。组件是逻辑设计中定义的概念和功能在物理架构中的实现。  <br />
+部署图：硬件和软件的物理配置情况和系统体系结构。    </p>
+<h1><center>第六章 高级数据查询</center></h1>
+<ol>
+<li>
+<p>使用TOP限制结果集：Distinct Top n [percent] [with ties]  
+如果有with ties 的话必须有order by  </p>
+</li>
+<li>
+<p>使用case函数： 
+简单case函数：  <br />
+CASE 测试表达式  <br />
+When 简单表达式1 THEN 结果表达式1  <br />
+When 简单表达式2 THEN 结果表达式2  <br />
+When 简单表达式3 THEN 结果表达式3  <br />
+[ELSE 结果表达式 n+1]  
+END  <br />
+搜索case函数：   <br />
+CASE 函数表达式：  <br />
+CASE   <br />
+WHEN 布尔表达式1 THEN 结果表达式1 <br />
+WHEN 布尔表达式2 THEN 结果表达式2<br />
+WHEN 布尔表达式3 THEN 结果表达式3<br />
+WHEN 布尔表达式4 THEN 结果表达式4 <br />
+[ELSE 结果表达式 n+1] <br />
+END      
+</p>
+</li>
+<li>
+<p>查询结果保存：SELECT 查询列表序列 INTO<新表名> FROM 数据源   </p>
+</li>
+<li>
+<p>并交差：UNION：列的个数必须相同，数据类型时间支持隐式转换，orderby 放在第二个语句后面   
+INTERSECT: <br />
+EXCEPT:  
+</p>
+</li>
+<li>
+<p>相关子查询:   WHERE表达式 比较运算符（子查询）：<br />
+   WHERE 表达式 比较运算符 （子查询）：<br />
+   WHERE 【NOT】EXISTS (子查询)：先执行外层，再执行内层<br />
+   替代表达式的子查询：在SELECT语句中的选择列表中嵌入一个只返回标量值的SELECT语句，一般值返回单值<br />
+   派生表子查询：可临时生成表并出现在from子句中  
+</p>
+</li>
+<li>
+<p>开窗函数：<br />
+聚合开窗函数：over 子句和聚合函数一起使用<br />
+排名开窗函数：RANK():函数并不一定返回连续整数。<br />
+ DENSE_RANK():函数返回的是连续的整数。<br />
+ NTILE():对其进行分组（NTILE（4）），每个分组内返回组号。<br />
+ ROW_NUMBER():每个分区（PARTITION BY）的序列号  
+</p>
+</li>
+</ol>
+<p>7.公用表表达式：（Common Table Expression，CTE）<br />
+WITHAS  </p>
+<h1><center>第七章 数据库及数据库对象</center></h1>
+<ol>
+<li>
+<p>SQL Server中将数据库分为两大类：系统数据库和用户数据库。    
+系统数据库：<br />
+master：最重要的系统数据。<br />
+Msdb：记录操作。<br />
+Model：数据库模板。<br />
+Tempdb：临时数据库。<br />
+Resource：看不到，包含所有系统对象。  
+</p>
+</li>
+<li>
+<p>文件被分为数据文件和日志文件。<br />
+数据文件包含数据和对象：主要数据文件和次要数据文件。  
+</p>
+</li>
+<li>
+<p>数据库的空间分配：创建用户数据库时，model数据库被自动复制到新建用户数据库中。<br />
+数据的存储分配单位是数据页，一页是8kb。<br />
+SQL server中不允许表中的一行数据存储在不同的页，即行不能跨页存储。  
+</p>
+</li>
+<li>
+<p>数据库文件组：主文件组和用户定义的文件组。  
+</p>
+</li>
+<li>
+<p>数据库文件的属性：文件名及其位置，初始大小，增长方式，最大大小。（TSQL）  
+</p>
+</li>
+<li>
+<p>T-SQL语言总结：<br />
+创建数据库：CREATE DATABASE Students<br />
+   ON PRIMARY主文件组文件1<br />
+   (<br />
+   NAME = Student_data1,<br />
+   FILENAME ='F:\DATA\MDF',<br />
+   SIZE = 5MB,<br />
+   MAXSIZE = UNLIMITED,<br />
+   FILEGROWTH = 1MB<br />
+   )<br />
+   ( 主文件组文件2<br />
+   NAME = Student_data1,<br />
+   FILENAME ='F:\DATA\NDF',<br />
+   SIZE = 5MB,<br />
+   MAXSIZE = UNLIMITED,<br />
+   FILEGROWTH = 1MB<br />
+   )<br />
+   LOG OPTION日志文件1<br />
+   (<br />
+   NAME = Student_data1,<br />
+   FILENAME ='F:\DATA\ldf',<br />
+   SIZE = 5MB,<br />
+   MAXSIZE = UNLIMITED,<br />
+   FILEGROWTH = 1MB<br />
+   )<br />
+   (日志文件2<br />
+   NAME = Student_data1,<br />
+   FILENAME ='F:\DATA\ldf',<br />
+   SIZE = 5MB,<br />
+   MAXSIZE = UNLIMITED,<br />
+   FILEGROWTH = 1MB<br />
+   )<br />
+修改数据库： <br />
+ALTER DATABASE RShDb<br />
+ADD FILE(<br />
+)<br />
+ALTER DATABASE RShDb<br />
+MODIFY FILE(<br />
+)<br />
+ALTER DATABASE RShDb<br />
+ADD LOG FILE(<br />
+)<br />
+<strong>收缩数据库空间：</strong><br />
+DBCC SHRINKDATABASE(Students,20)<br />
+收缩文件空间：<br />
+DBCC SHRINKFILE(Students,4)<br />
+<strong>删除数据库文件：</strong><br />
+ALTER DATABASE student REMOVE FILE Student_data1<br />
+**分离和附加数据库： ** 
+分离：EXEC sp_detach_db 'Students','true'<br />
+附加：CREATE DATABSE Students ON(FILENAME='F:\DATA.MDF') FOR ATTACH<br />
+<strong>数据库架构：</strong><br />
+ CREATE SCHEMA TEST AUTHORIZATION ZHANG<br />
+CREATE TABKE T1(<br />
+C1 INT<br />
+C2  CHAR(10))  <br />
+DROP SCHEMA  TEST CASCADE(连架构对象一起删除)/RESTRICT（如果架构中包含架构对象，不删除）<br />
+<strong>分区表：</strong> <br />
+创建分区函数：CREATE PARTITION FUNCTION myRangePF1（int）<br />
+ AS RANGE LEFT（小于等于和大于）/RIGHT(大于等于和小于) FOR VALUES(1,100,1000)<br />
+创建分区方案：CREATE PARTITION FUNCTION myRangePF1（int）<br />
+ AS RANGE LEFT FOR VALUES(1,100,1000)<br />
+ GO<br />
+ CREATE PARTITION SCHEME myRangePS<br />
+AS PARTITION myRangePF1 <br />
+TO(test1fg,test2fg,test3fg,test4fg)<br />
+ GO<br />
+ CREATE TABLE ParititonTable(<br />
+ col1 int,<br />
+ col2 char(10))<br />
+ ON myRangePS(col1)<br />
+<strong>索引：</strong>  <br />
+创建索引：CREATE NONCLUSTERED/CLUSTERED/UNIQUE INDEX IX_TransactionHistory 
+ ON Transaction(TransactionDate)<br />
+删除索引：DROP INDEX INDEXNAME;<br />
+索引视图：<br />
+适合使用索引视图的场景：很少更新基础数据或者基础数据以批处理的形式定期更新，可以提高连接和聚合操作的性能。<br />
+创建索引视图：CREATE VIEW Sales.vOrders<br />
+ With SCHEMABINDING<br />
+ AS<br />
+ SELECT ``````  
+ GO<br />
+ CREATE UNIQUE CLUSTERED INDEX IDX_V1 必须是唯一聚集索引<br />
+ON Sales.vOrders(字段名)<br />
+ GO<br />
+ 后面直接使用视图  
+</p>
+</li>
+<li>
+<p>SQL SERVER将数据库分为两大类：系统数据库和用户数据库。  
+  </p>
+</li>
+<li>
+<p>系统会自动安装五个系统数据库：
+ master（所有系统级信息）<br />
+ msdb（调度报警和作业以及记录操作员时使用）<br />
+ model（所有数据库模板）<br />
+ tempdb（临时对象和中间结果集）<br />
+ Resourse（只读数据库，包含了所有系统的对象）  
+</p>
+</li>
+<li>
+<p>操作系统文件包括数据文件（数据和对象）和日志文件（恢复数据库中所有事务需要的信息）。</p>
+</li>
+<li>
+<p>数据文件包括主要数据文件（mdf）和次要数据文件（ndf）。日志文件（ldf）。</p>
+</li>
+<li>
+<p>数据库文件组：主文件组和用户定义的文件组。</p>
+</li>
+<li>
+<p>数据库文件的属性：文件名及其位置，初始大小，增长方式，最大大小</p>
+</li>
+</ol>
+<h1><center>第八章 数据库后台编程技术</center></h1>
+<h3>游标</h3>
+<p>声明游标：DECLARE cursor_name 【INSENSITIVE】【SCROLL】CRUSOR  <br />
+  FOR  <br />
+例子说明一切：  <br />
+ DECLARE @CN VARCHAR(10), @Email VARCHAR(50)  <br />
+ DECLARE Cname_cursor CURSOR FOR  <br />
+  SELECT CName, Email From Tabke_Customer  <br />
+WHERE CName LIKE ‘王%’AND Address LIKE ‘’  <br />
+ OPEN Cname_cursor  <br />
+ FETCH NEXT FROM Cname_cursor INTO @cn,@Email   <br />
+ WHILE @@FETCH_STATUS=0  <br />
+ BEGIN  <br />
+PRINT’顾客姓名:’+@cn+’邮箱’+@Email  <br />
+FETCH NEXT FROM Cname_cursor INTO @cn,@Email  <br />
+ END  <br />
+CLOSE Cname_cursor  <br />
+DEALLOCATE Cname_cursor    </p>
+<p>游标的一些关键字注释：  
+ABSOLUTE:从开始第几个  
+  RELATIVE：从当前位置起始第几个  
+INSENSITIVE：敏感和不敏感。加上就不敏感，提取操作读取的是tempdb中的临时副本中的数据，不加的话读的是原表中的数据。  
+SCROLL：加上可以使用所有操作，不加只能使用next  </p>
+<h1><center>第九章 安全管理</center></h1>
+<ol>
+<li>
+<p>在数据库中，对有意的非法活动可采用加密存、取数据的方法控制；对有意的非法操作可使用用户身份验证、限制操作权限来控制；对无意的损坏可采用提高系统的可靠性和数据备份等方法实现。  </p>
+</li>
+<li>
+<p>DBA（DataBase Administrator）  </p>
+</li>
+<li>
+<p>影响数据库安全的威胁：可用性的损失，机密性数据的损失，私密性数据的损失，偷窃和欺诈，意外的损害。</p>
+</li>
+<li>
+<p>安全控制模型描述：
+用户通过数据库应用程序进入数据库系统-----》用户提供数据库应用程序的身份，然后数据库应用程序将用户的身份递交到数据库管理系统进行验证----》对于存储在磁盘上的数据库文件，还可以进行加密存储
+用户---》数据库应用程序---》数据库管理系统---》操作系统-----》   数据库
+身份验证|-------------操作权限控制------------| 文件操作控制 | 加密存储与冗余</p>
+</li>
+<li>
+<p>授权和认证<br />
+授权：授权是将合法访问数据库或数据库对象的权限授予用户的过程。<br />
+认证是一种鉴定用户身份的机制。<br />
+对于数据库的访问控制问题，主要采用两种方法：
+自主存取控制：比较灵活
+强制存取控制：分级别，比较严谨</p>
+</li>
+<li>
+<p>权限种类：
+语句权限：对数据库对象的操作（创建数据库等）
+对象权限：对数据库数据的操作（对表/视图的操作权限）</p>
+</li>
+<li>
+<p>用户的分类：系统管理员，数据库对象的拥有者，普通用户</p>
+</li>
+<li>
+<p>统计数据库允许用户查询聚合类型的信息，但不允许查询个人信息。但会暴露出很多安全问题。</p>
+</li>
+<li>
+<p>SQL SERVER安全机制：Windows身份验证模式，混合身份验证模式。</p>
+</li>
+<li>
+<p>数据库用户：登录账户可以映射多个数据库的用户，dbo是数据库的拥有者。
+注意：不能从数据库中删除拥有对象的用户，必须删除或转移安全对象的拥有者，然后再删除这些拥有对象的数据库用户。</p>
+</li>
+<li>
+<p>登录账户：CREATE LOGIN login_name WITH PASSWORD=’’
+  ALTER LOGIN login_name enable/WITH PASSWORD=’’</p>
+</li>
+<li>
+<p>权限管理:当登录账户成为数据库中的合法用户后，还需要对账户授予相应的权限。
+对象级别的权限：对对象允许操作的权限，例如select、insert、update等
+语句级别的权限：创建表，数据库，等隐含权限。</p>
+</li>
+<li>
+<p>角色：角色分为预定义的系统角色和用户定义的角色。
+    角色又可以分为服务器级的角色和数据库级的角色。</p>
+</li>
+<li>
+<p>固定服务器角色： </p>
+</li>
+</ol>
+<table>
+<thead>
+<tr>
+	<th align="left">role</th>
+	<th align="left">function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+	<td align="left">Bulkadmin</td>
+	<td align="left">BULK INSERT语句的权限，批量插入数据</td>
+</tr>
+<tr>
+	<td align="left">Dbcreator</td>
+	<td align="left">创建，删除，修改和还原数据的权限</td>
+</tr>
+<tr>
+	<td align="left">Diskadmin</td>
+	<td align="left">管理磁盘文件</td>
+</tr>
+<tr>
+	<td align="left">Processadmin</td>
+	<td align="left">管理运行在SQL SERVER的进程的权限</td>
+</tr>
+<tr>
+	<td align="left">Securityadmin</td>
+	<td align="left">管理登录账户、读取错误日志等</td>
+</tr>
+<tr>
+	<td align="left">Serveradmin</td>
+	<td align="left">设置服务器和关闭服务器</td>
+</tr>
+<tr>
+	<td align="left">Setupadmin</td>
+	<td align="left">添加和删除链接服务器</td>
+</tr>
+<tr>
+	<td align="left">Sysadmin</td>
+	<td align="left">系统管理员权限，windows中的Administrators组被自动映射成sysadmin角色中的成员</td>
+</tr>
+</tbody>
+</table>
+<p>创建角色或者删除角色要调用存储过程：<br />
+“EXEC sp_addsrvrolemember ‘登录名’,‘角色名’”<br />
+“EXEC sp_dropsrvrolemember ‘登录名’,‘角色名’”<br />
+</br>
+15. 固定数据库角色  </p>
+<table>
+<thead>
+<tr>
+	<th align="left">role</th>
+	<th align="left">function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+	<td align="left">db_accessadmin:</td>
+	<td align="left">添加或删除数据库用户的权限</td>
+</tr>
+<tr>
+	<td align="left">db_backupoperator:</td>
+	<td align="left">备份数据库、备份日志的权限</td>
+</tr>
+<tr>
+	<td align="left">db_owner:</td>
+	<td align="left">数据库中进行全部操作的权限</td>
+</tr>
+<tr>
+	<td align="left">db_securityadmin:</td>
+	<td align="left">具有管理数据库角色、角色成员以及数据库中的对象和语句的权限</td>
+</tr>
+</tbody>
+</table>
+<p>“EXEC sp_addrolemember ‘角色名’,‘成员名’”<br />
+“EXEC sp_droprolememeber ‘角色名’,‘成员名’”<br />
+</br>
+16. 用户定义的角色<br />
+便于管理数据库权限。CREATE ROLE 角色名 AUTHORIZATION ownername  </p>
+<h1><center>第十章 数据库运行维护与优化</center></h1>
+<ol>
+<li>
+<p>数据库运行维护的基本工作：数据库的转储与恢复、数据库的安全性，完整性控制、检测并改善数据库的性能、数据库的重组（只对存储空间进行全面调整）和重构（部分修改数据库的模式和内模式）</p>
+</li>
+<li>
+<p>运行状态监控与分析:  
+自动监控机制: 数据库自动监控
+手动监控机制：管理员手动实施
+对数据库构架的监控：空间基本信息、空间利用率等
+对数据库性能的监控：命中率、库缓冲，锁等性能相关</p>
+</li>
+<li>
+<p>数据库存储空间管理：物理存储结构和逻辑存储结构
+对空间的管理主要包括：创建数据库空间，更改空间大小，删除空间，修改空间状态，新建、移动、关联数据库文件等。</p>
+</li>
+<li>
+<p>数据库性能优化：
+数据库运行环境、数据库参数调整：<br />
+外部调整：CPU/网络<br />
+调整内存分配：<br />
+调整磁盘I/O:令IOS时间最小<br />
+调整竞争：控制多个进程对相同资源的竞争  <br />
+a)模式调整与优化：<br />
+增加派生性冗余列:可以避免使用聚合函数<br />
+增加冗余列:避免连接操作<br />
+重新组表:多个表连接才能得到的数据，需要重新组表<br />
+分割表:水平分割（数据量太过庞大）和垂直分割（一行数据超过一个数据页）<br />
+新增汇总表:增加了大量报表的汇总操作。<br />
+b)存储优化：<br />
+物化视图：预先保存那些耗时操作的结果，还可以勇于远程数据的本地复制<br />
+聚集：经常频繁一起查询的表，可以使用聚集<br />
+c)查询优化：<br />
+合理使用索引<br />
+避免或简化排序<br />
+消除对大型表数据的顺序存取<br />
+避免复杂的正则表达式<br />
+使用临时表加速查询<br />
+用排序来取代非顺序磁盘存取<br />
+不充分的连接条件<br />
+存储过程<br />
+不要随意使用游标<br />
+事务处理  
+</p>
+</li>
+<li>
+<p>数据库的实施包含四项工作：用DDL定义数据库结构、数据装载、编写与调试应用程序以及数据库的性能。</p>
+</li>
+<li>
+<p>数据库管理系统常用的性能工具有SQL Server Profiler 和数据库引擎优化顾问。</p>
+</li>
+</ol>
+<h1><center>第十一章 故障管理</center></h1>
+<p>1.故障类型及其解决办法：<br />
+事务内部的故障： 预期的事务内部故障：将事务回滚，撤销修改。<br />
+非预期的事务内部故障：强行回滚事务<br />
+系统故障：在系统重启之后，撤销（UNDO）所有未提交的事务，重做（REDO）所有已提交的事务。<br />
+介质故障：对策~软件容错：通过数据库备份和日志文件<br />
+硬件容错：双物理存储设备<br />
+计算机病毒故障：防火墙，杀毒软件</p>
+<p>2.恢复机制设计的两个问题：如何建立冗余数据以及如何利用冗余数据实施数据库的恢复。</p>
+<p>3.建立冗余数据的技术：数据转储（数据备份），登记日志文件，数据库复制，数据库镜像等</p>
+<p>4.数据转储：静态转储（转储过程系统不能运行其他事务），动态转储（允许转储操作和用户事务的并发执行）</p>
+<p>5.数据转储机制：完全转储（所有数据），增量转储（上次转储发生变化的数据），差量转储（最近一次完全转储后发生变化的数据）。</p>
+<p>6.日志文件: 事务故障恢复和系统故障恢复必须使用日志文件。动态转储方式中必须建立日志文件。静态转储中也可以使用日志文件。</p>
+<p>7.日志文件的两种格式:<br />
+以记录为单位的日志文件：包括每个事务的开始标记（BEGIN TRANSACTION）、每个事务的结束标记（COMMIT）以及每个事务的所有修改操作。
+以数据块为单位的日志文件：只包含事务标识和被更新的数据块。</p>
+<p>8.登记日志文件需要遵循的两条原则：
+登记的次序严格按并行事务执行的时间次序。
+必须先写日志文件，后写数据库。</p>
+<p>9.为了避免重复搜索整个日志，建立检查点是必须的。<br />
+恢复策略：事务在故障发生时未完成，应该撤销(UNDO)<br />
+  事务在检查点之后提交，它们对数据库的修改可能还在缓冲区，应该重做REDO<br />
+  事务在检查点之前提交，所以不必执行REDO操作  </p>
+<p>10.硬件容错方案：<br />
+磁盘保护技术（RAID廉价冗余磁盘阵列）：包括镜像冗余和校验冗余。<br />
+服务器容错技术（为了解决服务器硬件异常问题）：Active-Standby模式<br />
+数据库镜像： 优点：提供完整的数据冗余，增强数据保护功能<br />
+ 快速使用副本提供服务<br />
+ 提高升级期间的可用性<br />
+分类：双机互备援模式（两台都是工作机）和双机热备份（一台工作机，一台备份机）模式。  </p>
+<p>11.SQL Server数据库镜像三种实现方式：高可用性（两台服务器同步写入事务，支持自动回复），高保护（两台服务器同步写入事务，仅支持手动回复）和高性能（可以异步，只允许手动错误恢复）。</p>
+<h1><center>第十二章 备份与恢复数据库</center></h1>
+<ol>
+<li>
+<p>恢复模式：简单恢复模式，完整恢复模式和大容量日志恢复模式（只对大容量操作进行最小记录）</p>
+</li>
+<li>
+<p>更改数据库恢复模式：<br />
+ALTER DATABASE database_name SET RECOVERY {FULL|BULK_LOGGED|SIMPLE}  
+</p>
+</li>
+<li>
+<p>备份时间：对于系统数据库，一般采用修改后立即备份操作。<br />
+对于用户数据库，采取周期性备份的方法。并且进行了下列操作之后，最好立刻对数据库进行操作：<br />
+创建数据库之后，或者在数据库中批量加载数据之后。<br />
+创建索引之后。<br />
+执行了清理事务日志的操作之后。<br />
+执行了大量数据操作之后。  
+</p>
+</li>
+<li>
+<p>创建备份设备的T-SQL存储过程：sp_addumpdevice  
+</p>
+</li>
+<li>
+<p>备份类型:  数据库备份:<br />
+文件备份:<br />
+  事务日志备份：  
+</p>
+</li>
+<li>
+<p>三种数据库备份方式：完整备份，差异备份和日志备份。</p>
+</li>
+<li>
+<p>第一次对数据库进行的备份必须是完整备份。</p>
+</li>
+<li>
+<p>简单模式没有日志备份。</p>
+</li>
+<li>
+<p>进行数据库操作时允许用户操作数据库。</p>
+</li>
+</ol>
+<h1><center>第十三章 大规模数据库架构</center></h1>
+<h3>分布式数据库：</h3>
+<ol>
+<li>
+<p>分布式数据库是物理上分散、逻辑上集中的数据库系统。</p>
+</li>
+<li>
+<p>数据分布策略： 数据分片:水平分片，垂直分片，导出分片，混合分片  
+   数据分配：
+集中式（都安排在一个场地），  
+分割式（只有一份，并被分割成若干片段）  
+全复制式（多个副本）  
+混合式（上述三种方式的复合）</p>
+</li>
+<li>
+<p>分布式数据库的参考模式结构：
+全局外模式：用户视图  
+全局概念模式：描述全体数据的逻辑结构特征  
+分片模式：片段与片段之间的映像  
+分配模式：各片段到物理存放场地的映像。  
+局部概念模式：全局关系在场地上存储的物理片段的逻辑结构  
+局部内模式：</p>
+</li>
+<li>
+<p>分布透明性:  分片透明性:最高级别的透明性
+位置透明性:数据分片的分配位置对用户是透明的
+局部数据模型透明性:</p>
+</li>
+<li>
+<p>分布式数据库系统的结构:全局数据库管理系统GDBMS、全局数据字典GDD、局部数据库管理系统LDBMS和通信管理CM。</p>
+</li>
+<li>
+<p>查询代价主要从：CPU代价、I/O代价和通信代价考虑。
+分布式查询优化：主要从操作执行的顺序、操作的执行算法以及不同场地间的数据流动的顺序。<br />
+对于连接操作的优化策略有：基于半连接的优化策略和基于连接的优化策略。<br />
+分布式事务管理主要包括：恢复控制和并发控制。</p>
+</li>
+</ol>
+<h3>并行数据库</h3>
+<ol>
+<li>
+<p>并行数据库系统结构：共享内存结构，共享磁盘结构，无共享结构，层次机构。</p>
+</li>
+<li>
+<p>一维数据划分：轮转法（扫描整个关系），散列划分（点查询），范围划分（扫描整个关系）</p>
+</li>
+</ol>
+<h3>云计算数据库架构</h3>
+<ol>
+<li>
+<p>公共云，私有云</p>
+</li>
+<li>
+<p>云计算的优势吧：无线的计算资源，硬件可以逐步增加，不需要一次性购买，可以短期使用资源，比较灵活。</p>
+</li>
+<li>
+<p>谷歌基础云计算架构模式：文件系统Google File System,分布式编程环境Map/Reduce，分布式的锁机制Chubby以及大规模分布式数据库</p>
+</li>
+<li>
+<p>目前主要的云计算平台有Amazon的AWS、Google的GAE以及开放的云计算平台Hadoop。</p>
+</li>
+</ol>
+<h1><center>第十四章 数据仓库与数据挖掘</center></h1>
+<ol>
+<li>
+<p>数据仓库是一个面向主题的、集成的、非易失的、且随时间变化的数据集合，用来支持人员的决策。</p>
+</li>
+<li>
+<p>数据仓库的几个特性：面向主题性，集成性，不可更新性，时间特性。</p>
+</li>
+<li>
+<p>数据仓库中的粒度概念：粒度越小，细节程度越高，能回答的查询也就越多。</p>
+</li>
+<li>
+<p>操作型数据存储（ODS）：1、2、3、4前三个以时间为判断依据，第四个以数据来源和类型来区分</p>
+</li>
+<li>
+<p>粒度能够影响数据仓库的数据量以及系统能回答的查询类型。</p>
+</li>
+<li>
+<p>数据仓库的维护：实时维护、延时维护和快照维护。</p>
+</li>
+<li>
+<p>OLAP(联机事务处理环境)的实现方式：基于多维数据库的OLAP（MOLAP），基于关系数据库的OLAP(ROLAP)，混合型的OLAP(HOLAP)</p>
+</li>
+<li>
+<p>数据挖掘：步骤：数据准备、数据挖掘、数据解释评估。</p>
+</li>
+</ol>
+
+</body>
+</html>
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->
